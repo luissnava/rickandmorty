@@ -29,7 +29,7 @@ const Locations: React.FC = () => {
         <h3 className="text-4xl font-normal uppercase hover:text-green-500">Ubicaciones</h3>
       </div>
       <div
-        className={`w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-10 p-20`}
+        className={`w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 p-10`}
       >
         {locations.map((item: Location, index: number) => (
           <CardLocation key={index} item={item} />
