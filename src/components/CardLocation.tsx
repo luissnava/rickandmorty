@@ -40,7 +40,7 @@ const CardLocation: React.FC<CardLocationProps> = ({ item }) => {
     <div className={`w-full h-[60vh] relative bg-white shadow-xl transform duration-500 hover:-translate-y-2 group z-10`}>
       <div className="w-full h-full absolute top-0 left-0 p-10 transform duration-300 z-10">
         <div className="w-full flex justify-end">
-          <FontAwesomeIcon icon={faHeart} color={item.favorite ? "red" : "gray"} size='2xl' className='cursor-pointer' onClick={
+          <FontAwesomeIcon icon={faHeart} color={item.favorite ? "red" : "gray"} size='2xl' className='cursor-pointer hover:scale-125 transition-all duration-500' onClick={
             () => handleFavorite(item.id, item.favorite)} />
         </div>
         <div className="w-full text-xl font-bold mb-5 mt-5 text-left">

@@ -46,7 +46,7 @@ const CardCharacter: React.FC<CardCharacterProps> = ({ item }) => {
       }}>
       <div className="w-full h-full absolute top-0 left-0 p-10 text-white bg-black bg-opacity-0 hover:bg-opacity-50 transform duration-300 z-10">
         <div className="w-full flex justify-end">
-          <FontAwesomeIcon icon={faHeart} color={item.favorite ? "red" : "white"} size='2xl' className='cursor-pointer' onClick={
+          <FontAwesomeIcon icon={faHeart} color={item.favorite ? "red" : "white"} size='2xl' className='cursor-pointer hover:scale-125 transition-all duration-500' onClick={
             () => handleFavorite(item.id, item.favorite)} />
         </div>
         <div className="w-full text-xl font-semibold mb-5 text-left transform translate-y-20 group-hover:translate-y-0 duration-500">
