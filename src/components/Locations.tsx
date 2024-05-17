@@ -17,14 +17,25 @@ const Locations: React.FC = () => {
   if (!context) {
     return null;
   }
-  const { locations } = context;
+  const { locations, windowWidth } = context;
 
   useEffect(() => {
     console.log(locations);
   }, [locations]);
 
+  
+  const handleGrid = (windowWidth: number): string => {
+    if (windowWidth < 1080) {
+      return "grid-cols-4";
+    } else if (windowWidth < 600) {
+      return "grid-cols-2";
+    } else {
+      return "grid-cols-1";
+    }
+  };
+
   return (
-    <div className='w-full grid grid-cols-4 gap-10 p-20 bg-slate-200'>
+    <div className={`w-full grid ${handleGrid(windowWidth)} gap-10 p-20 bg-slate-200`}>
       {
         locations.map((item: Location, index: number) => (
           <CardLocation key={index} item={item} />

@@ -7,10 +7,11 @@ const Home: React.FC = () => {
   if (!context) {
     return null;
   }
-  const { characters } = context;
-
+  const { characters, windowWidth } = context;
+  console.log(windowWidth);
+  
   return (
-    <div className='w-full grid grid-cols-4 p-10 gap-10 bg-slate-200'>
+    <div className={`w-full grid ${windowWidth < 1080 ? "grid-cols-2" : "grid-cols-4"} p-10 gap-10 bg-slate-200`}>
       {
         characters?.map((item, index) => (
           <CardCharacter key={index} item={item} />

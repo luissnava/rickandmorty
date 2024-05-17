@@ -31,7 +31,7 @@ const Favorites: React.FC = () => {
   if (!context) {
     return null;
   }
-  const { characters, locations, favorites, setFavorites } = context;
+  const { characters, locations, favorites, setFavorites, windowWidth } = context;
 
   useEffect(() => {
     const combinedFavorites: FavoriteItem[] = [
@@ -43,7 +43,7 @@ const Favorites: React.FC = () => {
   }, [characters, locations, setFavorites]);
 
   return (
-    <div className='w-full grid grid-cols-4 gap-10 p-20'>
+    <div className={`w-full grid ${windowWidth < 1080 ? "grid-cols-2" : "grid-cols-4"} gap-10 p-20`}>
       {
         favorites.map((item: FavoriteItem, index: number) => (
           item.option === "characters" ? <CardCharacter key={index} item={item as Character} /> : item.option === "locations" ? <CardLocation key={index} item={item as Location} /> : null
