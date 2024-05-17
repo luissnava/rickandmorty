@@ -22,14 +22,19 @@ const CardLocation: React.FC<CardLocationProps> = ({ item }) => {
   if (!context) {
     return null;
   }
-  const { locations, setLocations } = context;
+  const { locations, setLocations, session } = context;
 
   const handleFavorite = (id: number, favorite: boolean) => {
-    const updateLocations = locations.map((location) =>
-      location.id === id ? { ...location, favorite: !favorite } : location
-    );
-    setLocations(updateLocations);
+    if (session) {
+      const updateCharacters = locations.map((item) =>
+        item.id === id ? { ...item, favorite: !favorite } : item
+      );
+      setLocations(updateCharacters);
+    } else {
+      alert('Por favor inicia sesión, para guardar en favoritos');
+    }
   }
+
 
   return (
     <div className={`w-full h-[60vh] relative bg-white shadow-xl transform duration-500 hover:-translate-y-2 group z-10`}>
