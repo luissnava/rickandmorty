@@ -59,7 +59,7 @@ const GlobalContextProvider: React.FC<GlobalContextProviderProps> = ({ children 
     localStorage.removeItem('user');
     localStorage.removeItem('password');
     setSession(false);
-    window.location.reload();
+    
   };
 
   const handleSession = () => {
@@ -129,7 +129,7 @@ const GlobalContextProvider: React.FC<GlobalContextProviderProps> = ({ children 
     handleGetCharacter();
     handleGetLocations();
     handleSession();
-  }, []);
+  }, [session]);
 
   useEffect(() => {
     window.addEventListener("resize", handleWindow);
@@ -137,16 +137,7 @@ const GlobalContextProvider: React.FC<GlobalContextProviderProps> = ({ children 
     return () => window.removeEventListener("resize", handleWindow);
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }, [favorites]);
 
-  useEffect(() => {
-    const savedFavorites = localStorage.getItem('favorites');
-    if (savedFavorites) {
-      setFavorites(JSON.parse(savedFavorites));
-    }
-  }, []);
 
   const valueProvider = useMemo(
     () => ({

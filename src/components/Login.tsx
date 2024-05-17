@@ -1,9 +1,10 @@
 import React, { useState, useContext, ChangeEvent } from 'react';
 import { globalContext } from '../context/Globalconntext';
-
+import { useNavigate } from 'react-router-dom';
 const Login: React.FC = () => {
   const [user, setUser] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const navigate = useNavigate()
   const context = useContext(globalContext);
   if (!context) {
     return null;
@@ -22,10 +23,14 @@ const Login: React.FC = () => {
   const handleSetLogin = (): void => {
     if (user !== "" && password !== "") {
       handleLogin(user, password);
-      window.location.reload();
+      navigate('/')
     } else {
       alert("Todos los campos son requeridos");
     }
+  }
+  const handleSetLogout = () =>{
+    handleLogout()
+    navigate('/')
   }
 
   return (
@@ -61,7 +66,7 @@ const Login: React.FC = () => {
             <div className="flex items-center justify-between">
               {
                 session ? (
-                  <button className="bg-[#08b2d1] hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" type="button" onClick={handleLogout}>
+                  <button className="bg-[#08b2d1] hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" type="button" onClick={handleSetLogout}>
                     Salir
                   </button>
                 ) : (
