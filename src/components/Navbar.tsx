@@ -21,7 +21,9 @@ const Navbar: React.FC = () => {
         <ul className="w-full flex items-center justify-center gap-5">
           {navbarServer.map((item) => (
             <li key={item.id} className="text-center text-md">
-              <NavLink to={item.url}>
+              <NavLink to={item.url}  className={({ isActive }) =>
+                                    isActive ? 'text-green-500' : ''
+                                }>
                 {session
                   ? item.title2
                     ? item.title2

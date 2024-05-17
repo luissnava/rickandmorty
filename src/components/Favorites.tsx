@@ -48,7 +48,7 @@ const Favorites: React.FC = () => {
   return (
     <div className="w-full">
       <div className="w-full flex justify-center p-10">
-        <h3 className="text-4xl font-normal uppercase">Favoritos</h3>
+        <h3 className="text-4xl font-normal uppercase hover:text-green-500">Favoritos</h3>
       </div>
 
       {session && favorites.length > 0 ? (

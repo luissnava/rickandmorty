@@ -66,11 +66,11 @@ const Login: React.FC = () => {
             <div className="flex items-center justify-between">
               {
                 session ? (
-                  <button className="bg-[#08b2d1] hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" type="button" onClick={handleSetLogout}>
+                  <button className="bg-[#08b2d1] hover:bg-green-500 text-white font-bold py-2 px-4 rounded" type="button" onClick={handleSetLogout}>
                     Salir
                   </button>
                 ) : (
-                  <button className="bg-[#08b2d1] hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" type="button" onClick={handleSetLogin}>
+                  <button className="bg-[#08b2d1] hover:bg-green-500 text-white font-bold py-2 px-4 rounded" type="button" onClick={handleSetLogin}>
                     Entrar
                   </button>
                 )
