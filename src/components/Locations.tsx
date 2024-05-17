@@ -17,7 +17,7 @@ const Locations: React.FC = () => {
   if (!context) {
     return null;
   }
-  const { locations, windowWidth } = context;
+  const { locations } = context;
 
   useEffect(() => {
     console.log(locations);
